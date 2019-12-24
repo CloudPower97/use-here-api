@@ -1,0 +1,75 @@
+{
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --env=jsdom --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "release": "release-it"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "@cloudpower97/use-here-api",
+  "description": "Collection of convenient React Hooks which lets you easily use HERE RESTful API services",
+  "homepage": "https://github.com/CloudPower97/use-here-api",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CloudPower97/use-here-api.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-hooks",
+    "hooks",
+    "here",
+    "geolocation",
+    "geocoding",
+    "api"
+  ],
+  "author": {
+    "name": "Claudio Cortese",
+    "url": "https://github.com/CloudPower97"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CloudPower97/use-here-api/issues"
+  },
+  "module": "dist/use-here-api.esm.js",
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@types/jest": "^24.0.24",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "husky": "^3.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "release-it": "^12.4.3",
+    "tsdx": "^0.12.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "axios": "0.18",
+    "axios-hooks": "^1.9.0"
+  }
+}
