@@ -193,6 +193,7 @@ const useForwardGeocoding = (
 ) =>
   useAxios<ForwardGeocodingResponse>(
     {
+      // @ts-ignore
       baseURL: params.apiKey
         ? 'https://geocoder.ls.hereapi.com/6.2/geocode.json'
         : 'https://geocoder.api.here.com/6.2/geocode.json',

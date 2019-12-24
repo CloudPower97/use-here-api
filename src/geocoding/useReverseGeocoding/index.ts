@@ -74,6 +74,7 @@ const useReverseGeocoding = (
 ) =>
   useAxios<ReverseGeocodingResponse>(
     {
+      // @ts-ignore
       baseURL: params.apiKey
         ? 'https://reverse.geocoder.ls.hereapi.com/6.2/reversegeocode.json'
         : 'https://reverse.geocoder.api.here.com/6.2/reversegeocode.json',
