@@ -22,9 +22,9 @@
   <br />
   <!-- <br />
   <br /> -->
-  <pre>npm i use-here-api</pre>
+  <pre>npm i <a href="https://www.npmjs.com/package/@cloudpower97/use-here-api">use-here-api</a></pre>
   or
-  <pre>yarn add use-here-api</pre>
+  <pre>yarn add <a href="https://www.npmjs.com/package/@cloudpower97/use-here-api">use-here-api</a></pre>
   <br />
   <br />
   <br />
