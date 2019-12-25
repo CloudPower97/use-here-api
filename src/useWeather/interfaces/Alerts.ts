@@ -1,6 +1,7 @@
 import AlertsItems from './AlertsItem';
+import LocationMetadata from './LocationMetadata';
 
-export default interface Alerts {
+export default interface Alerts extends Partial<LocationMetadata> {
   /**
    * Alert issued for location.
    *

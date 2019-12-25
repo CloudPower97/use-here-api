@@ -1,4 +1,6 @@
-export default interface WeatherItems {
+import LocationMetadata from './LocationMetadata';
+
+export default interface WeatherItems extends Partial<LocationMetadata> {
   /**
    * Part of the day (D=day or N=night).
    *
