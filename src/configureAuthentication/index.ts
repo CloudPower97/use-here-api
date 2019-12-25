@@ -65,5 +65,5 @@ type Auth =
   | TokenAuthentication;
 
 export default (params: Auth) => {
-  axios.defaults.params = { ...params, jsonattributes: 1 };
+  axios.defaults.params = params;
 };
