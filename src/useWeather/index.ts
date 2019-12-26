@@ -1,4 +1,3 @@
-import RequestParameters from '../geocoding/interfaces/RequestParameters';
 import useAxios from 'axios-hooks';
 import Alerts from './interfaces/Alerts';
 import Observations from './interfaces/Observation';
@@ -8,7 +7,7 @@ import HourlyForecast from './interfaces/HourlyForecast';
 import NWSAlerts from './interfaces/NWSAlerts';
 import Astronomy from './interfaces/Astronomy';
 
-interface WeatherRequestParameters extends RequestParameters {
+interface WeatherRequestParameters {
   /**
    * A parameter identifying the type of report to obtain.
    *
