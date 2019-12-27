@@ -1,7 +1,5 @@
 <div align="center">
   <h1>
-    <br/>
-    <br/>
     <img src="https://2019.foss4g.org/wp-content/uploads/2019/02/logo_here-194x178.png" alt="" width="100"/>
     <br />
     use-here-api
@@ -20,7 +18,6 @@
   </sup>
   <br />
   <br />
-  <!-- <br />
   <br /> -->
   <pre>npm i <a href="https://www.npmjs.com/package/@cloudpower97/use-here-api">use-here-api</a></pre>
   or
@@ -55,9 +52,15 @@
 
 ## Documentation
 
- - `useForwardGeocoding` -- Submit an address to request the corresponding geocoordinates. Addresses may use structured input or free-form search strings with complete or partial address information.
-The more detailed the address you submit, the higher the potential match accuracy.
- - `useReverseGeocoding` -- Submit a geocoordinate and an optional radius to request the corresponding address.
+At the moment the following `hooks` are implementend:
+
+  - Geocoding and Search
+      - `useForwardGeocoding` -- Submit an address to request the corresponding geocoordinates. Addresses may use structured input or free-form search strings with complete or partial address information.
+      The more detailed the address you submit, the higher the potential match accuracy.
+
+      - `useReverseGeocoding` -- Submit a geocoordinate and an optional radius to request the corresponding address.
+
+ - `useWeather` -- Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
   
 ---
 
