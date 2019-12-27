@@ -60,6 +60,8 @@ At the moment the following `hooks` are implementend:
 
       - `useReverseGeocoding` -- Submit a geocoordinate and an optional radius to request the corresponding address.
 
+      - `useAutocomplete` -- Get better search suggestions for your addresses with fewer keystrokes.
+
  - `useWeather` -- Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
   
 ---
