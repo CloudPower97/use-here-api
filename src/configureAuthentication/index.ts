@@ -59,11 +59,14 @@ interface TokenAuthentication {
   token: string;
 }
 
-type Auth =
-  | ApiKeyAuthentication
-  | AppCodeAppIdAuthentication
-  | TokenAuthentication;
+type ConfigureAuth = {
+  (params: ApiKeyAuthentication): void;
+  (params: AppCodeAppIdAuthentication): void;
+  (params: TokenAuthentication): void;
+};
 
-export default (params: Auth) => {
+const configureAuth: ConfigureAuth = (params: any) => {
   axios.defaults.params = params;
 };
+
+export default configureAuth;
