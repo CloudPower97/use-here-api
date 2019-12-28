@@ -18,13 +18,10 @@
   </sup>
   <br />
   <br />
-  <br /> -->
+  <br />
   <pre>npm i <a href="https://www.npmjs.com/package/@cloudpower97/use-here-api">use-here-api</a></pre>
   or
   <pre>yarn add <a href="https://www.npmjs.com/package/@cloudpower97/use-here-api">use-here-api</a></pre>
-  <br />
-  <br />
-  <br />
   <br />
   <br />
 </div>
@@ -64,6 +61,9 @@ At the moment the following `hooks` are implementend:
 
  - `useWeather` -- Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
   
+ - Places
+   - `usePlacesAutosuggest` - Provides you a lists of suggested search terms, instants results and refined search links related to a given (partial) search term and location context.
+ This is used to help users save time, iterate on their searches, and get the results.
 ---
 
 
