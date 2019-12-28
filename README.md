@@ -32,7 +32,7 @@
 - [Overview](#overview)
 - [Documentation](#documentation)
   - [Usage](#usage)
-  - [Options](#options)
+  - [Available Hooks](#available-hooks)
 - [Contributing](#contributing)
   - [Development](#development)
   - [Commit Guidelines](#commit-guidelines)
@@ -49,23 +49,70 @@
 
 ## Documentation
 
-At the moment the following `hooks` are implementend:
+### Usage
 
-  - Geocoding and Search
-      - `useForwardGeocoding` -- Submit an address to request the corresponding geocoordinates. Addresses may use structured input or free-form search strings with complete or partial address information.
+Prior using any of the exposed hook you should provide credentials to authenticate your requests.
+
+As noted in the [Authentication and Authorization Developer Guide](<https://developer.here.com/documentation/authentication/dev_guide/index.html>) there are three supported authentication credential types:
+
+- [API Key Credentials](<https://developer.here.com/documentation/authentication/content/dev_guide/topics/api-key-credentials.html>)
+
+  ```javascript
+  import { configureAuthentication } from '@cloudpower97/use-here-api';
+
+  configureAuthentication({
+    apiKey: '...'
+  });
+
+  ```
+
+- [OAuth 2.0 Token Credentials](<https://developer.here.com/documentation/authentication/content/dev_guide/topics/token.html>)
+
+  ```javascript
+  import { configureAuthentication } from '@cloudpower97/use-here-api';
+
+  configureAuthentication({
+    token: '...'
+  });
+
+  ```
+
+- [APP CODE Credentials](<https://developer.here.com/documentation/authentication/content/dev_guide/topics/app-credentials.html>)
+
+  ```javascript
+  import { configureAuthentication } from '@cloudpower97/use-here-api';
+
+  configureAuthentication({
+    app_id: '...',
+    app_code: '...',
+  });
+
+  ```
+
+
+With the introduction of OAuth 2.0 Token and API Key authentication types there are also new domain names for HERE services.
+
+The domain names used with APPCODE Credentials and the new domain names to be used with either OAuth 2.0 Token or API Key Credentials are different.
+
+However, once configured properly, `use-here-api` will automatically use the correct domain name to be used for the respective HERE services.
+
+### Available Hooks
+
+At the moment the following `hooks` are available:
+
+- Geocoding and Search
+  - `useForwardGeocoding` - Submit an address to request the corresponding geocoordinates. Addresses may use structured input or free-form search strings with complete or partial address information.
       The more detailed the address you submit, the higher the potential match accuracy.
+  - `useReverseGeocoding` - Submit a geocoordinate and an optional radius to request the corresponding address.
+  - `useAutocomplete` - Get better search suggestions for your addresses with fewer keystrokes.
 
-      - `useReverseGeocoding` -- Submit a geocoordinate and an optional radius to request the corresponding address.
-
-      - `useAutocomplete` -- Get better search suggestions for your addresses with fewer keystrokes.
-
- - `useWeather` -- Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
+- `useWeather` - Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
   
- - Places
-   - `usePlacesAutosuggest` - Provides you a lists of suggested search terms, instants results and refined search links related to a given (partial) search term and location context.
+- Places
+  - `usePlacesAutosuggest` - Provides you a lists of suggested search terms, instants results and refined search links related to a given (partial) search term and location context.
  This is used to help users save time, iterate on their searches, and get the results.
----
 
+---
 
 ## Contributing
 
