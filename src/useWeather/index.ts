@@ -1,4 +1,4 @@
-import useAxios from 'axios-hooks';
+import useAxios from '../useAxios';
 import Alerts from './interfaces/Alerts';
 import Observations from './interfaces/Observation';
 import Forecasts from './interfaces/Forecasts';
@@ -212,21 +212,12 @@ interface WeatherResponse {
 /**
  * Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
  */
-const useForwardGeocoding = (
-  params: WeatherRequestParameters,
-  options?: {
-    manual?: boolean;
-  }
-) =>
-  useAxios<WeatherResponse>(
-    {
-      // @ts-ignore
-      baseURL: params.apiKey
-        ? 'https://weather.ls.hereapi.com/weather/1.0/report.json'
-        : 'https://weather.api.here.com/weather/1.0/report.json',
-      params,
+const useWeather = () =>
+  useAxios<WeatherRequestParameters, WeatherResponse>({
+    domains: {
+      appCode: 'https://weather.api.here.com/weather/1.0/report.json',
+      apiKey: 'https://weather.ls.hereapi.com/weather/1.0/report.json',
     },
-    options
-  );
+  });
 
-export default useForwardGeocoding;
+export default useWeather;

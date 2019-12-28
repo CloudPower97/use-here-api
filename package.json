@@ -69,7 +69,6 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "axios": "0.18",
-    "axios-hooks": "^1.9.0"
+    "axios": "0.18.1"
   }
 }

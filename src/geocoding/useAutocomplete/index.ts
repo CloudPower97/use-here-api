@@ -1,4 +1,4 @@
-import useAxios from 'axios-hooks';
+import useAxios from '../../useAxios';
 import Address from '../interfaces/Address';
 import AddressAttributes from '../interfaces/AddressAttributes';
 
@@ -226,21 +226,12 @@ interface AutocompleteResponse {
 /**
  * Get better search suggestions for your addresses with fewer keystrokes.
  */
-const useAutocomplete = (
-  params: AutocompleteRequestParameters,
-  options?: {
-    manual?: boolean;
-  }
-) =>
-  useAxios<AutocompleteResponse>(
-    {
-      // @ts-ignore
-      baseURL: params.apiKey
-        ? 'https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json'
-        : 'https://autocomplete.geocoder.api.here.com/6.2/suggest.json',
-      params,
+const useAutocomplete = () =>
+  useAxios<AutocompleteRequestParameters, AutocompleteResponse>({
+    domains: {
+      apiKey: 'https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json',
+      appCode: 'https://autocomplete.geocoder.api.here.com/6.2/suggest.json',
     },
-    options
-  );
+  });
 
 export default useAutocomplete;
