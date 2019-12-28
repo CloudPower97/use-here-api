@@ -1,6 +1,6 @@
+import useAxios from '../../useAxios';
 import ForwardGeocodingResponse from '../interfaces/SearchResponse';
 import RequestParameters from '../interfaces/RequestParameters';
-import useAxios from 'axios-hooks';
 
 interface ForwardGeocodingRequestParameters extends RequestParameters {
   /**
@@ -185,21 +185,12 @@ interface ForwardGeocodingRequestParameters extends RequestParameters {
  *
  * The more detailed the address you submit, the higher the potential match accuracy.
  */
-const useForwardGeocoding = (
-  params: ForwardGeocodingRequestParameters,
-  options?: {
-    manual?: boolean;
-  }
-) =>
-  useAxios<ForwardGeocodingResponse>(
-    {
-      // @ts-ignore
-      baseURL: params.apiKey
-        ? 'https://geocoder.ls.hereapi.com/6.2/geocode.json'
-        : 'https://geocoder.api.here.com/6.2/geocode.json',
-      params,
+const useForwardGeocoding = () =>
+  useAxios<ForwardGeocodingRequestParameters, ForwardGeocodingResponse>({
+    domains: {
+      apiKey: 'https://geocoder.ls.hereapi.com/6.2/geocode.json',
+      appCode: 'https://geocoder.api.here.com/6.2/geocode.json',
     },
-    options
-  );
+  });
 
 export default useForwardGeocoding;

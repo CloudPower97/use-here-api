@@ -1,7 +1,7 @@
+import useAxios from '../../useAxios';
 import ReverseGeocodingResponse from '../interfaces/SearchResponse';
 import RequestParameters from '../interfaces/RequestParameters';
 import AddressAttributes from '../interfaces/AddressAttributes';
-import useAxios from 'axios-hooks';
 
 interface ReverseGeocodingRequestParameters extends RequestParameters {
   /**
@@ -66,21 +66,12 @@ interface ReverseGeocodingRequestParameters extends RequestParameters {
 /**
  * Submit a geocoordinate and an optional radius to request the corresponding address.
  */
-const useReverseGeocoding = (
-  params: ReverseGeocodingRequestParameters,
-  options?: {
-    manual?: boolean;
-  }
-) =>
-  useAxios<ReverseGeocodingResponse>(
-    {
-      // @ts-ignore
-      baseURL: params.apiKey
-        ? 'https://reverse.geocoder.ls.hereapi.com/6.2/reversegeocode.json'
-        : 'https://reverse.geocoder.api.here.com/6.2/reversegeocode.json',
-      params,
+const useReverseGeocoding = () =>
+  useAxios<ReverseGeocodingRequestParameters, ReverseGeocodingResponse>({
+    domains: {
+      apiKey: 'https://reverse.geocoder.ls.hereapi.com/6.2/reversegeocode.json',
+      appCode: 'https://reverse.geocoder.api.here.com/6.2/reversegeocode.json',
     },
-    options
-  );
+  });
 
 export default useReverseGeocoding;

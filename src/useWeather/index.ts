@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import axios, { CancelTokenSource } from 'axios';
+import useAxios from '../useAxios';
 import Alerts from './interfaces/Alerts';
 import Observations from './interfaces/Observation';
 import Forecasts from './interfaces/Forecasts';
@@ -213,68 +212,12 @@ interface WeatherResponse {
 /**
  * Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
  */
-const useForwardGeocoding = (
-  params: WeatherRequestParameters,
-  options?: {
-    manual?: boolean;
-  }
-) => {
-  const instance = axios.create({
-    baseURL: 'https://weather.api.here.com/weather/1.0/report.json',
+const useWeather = () =>
+  useAxios<WeatherRequestParameters, WeatherResponse>({
+    domains: {
+      appCode: 'https://weather.api.here.com/weather/1.0/report.json',
+      apiKey: 'https://weather.ls.hereapi.com/weather/1.0/report.json',
+    },
   });
 
-  instance.interceptors.request.use(
-    config => {
-      const { params } = config;
-
-      setLoading(true);
-
-      if (params.apiKey) {
-        config.baseURL = 'https://weather.api.here.com/weather/1.0/report.json';
-      }
-
-      return config;
-    },
-    error => {
-      return Promise.reject(error);
-    }
-  );
-
-  instance.interceptors.response.use(
-    res => {
-      console.log(res);
-
-      setLoading(false);
-      setData(res.data);
-
-      return res;
-    },
-    err => err
-  );
-
-  const cancelSourceRef = useRef<CancelTokenSource | undefined>(undefined);
-  const [data, setData] = useState<WeatherResponse | undefined>(undefined);
-  const [loading, setLoading] = useState<boolean>(false);
-
-  const fetchWeather = useCallback(
-    (params: WeatherRequestParameters) =>
-      instance.get<WeatherResponse>('', {
-        params,
-      }),
-    [params]
-  );
-
-  useEffect(() => {
-    cancelSourceRef.current = axios.CancelToken.source();
-
-    if (!options?.manual) {
-      fetchWeather(params);
-    }
-
-    return () => cancelSourceRef.current!.cancel();
-  }, []);
-
-  return [{ data, loading }, fetchWeather] as const;
-};
-
-export default useForwardGeocoding;
+export default useWeather;

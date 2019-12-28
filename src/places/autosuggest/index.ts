@@ -1,9 +1,8 @@
+import useAxios from '../../useAxios';
 import RepresentationModifiers from '../RepresentationModifiers';
 import AutosuggestPlace from './AutosuggestPlace';
 import AutosuggestQueryCompletion from './AutosuggestQueryCompletion';
 import AutosuggestSearch from './AutosuggestSearch';
-
-import useAxios from 'axios-hooks';
 
 interface PlacesAutosuggestRequestParameters
   extends Partial<RepresentationModifiers> {
@@ -168,21 +167,12 @@ interface PlacesAutosuggestResponse {
  * Provides you a lists of suggested search terms, instants results and refined search links related to a given (partial) search term and location context.
  * This is used to help users save time, iterate on their searches, and get the results.
  */
-const usePlacesAutosuggest = (
-  params: PlacesAutosuggestRequestParameters,
-  options?: {
-    manual?: boolean;
-  }
-) =>
-  useAxios<PlacesAutosuggestResponse>(
-    {
-      // @ts-ignore
-      baseURL: params.apiKey
-        ? 'https://places.ls.hereapi.com/places/v1/autosuggest'
-        : 'https://places.api.here.com/places/v1/autosuggest',
-      params,
+const usePlacesAutosuggest = () =>
+  useAxios<PlacesAutosuggestRequestParameters, PlacesAutosuggestResponse>({
+    domains: {
+      apiKey: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+      appCode: 'https://places.api.here.com/places/v1/autosuggest',
     },
-    options
-  );
+  });
 
 export default usePlacesAutosuggest;
