@@ -106,7 +106,7 @@ At the moment the following `hooks` are available:
   - `useReverseGeocoding` - Submit a geocoordinate and an optional radius to request the corresponding address.
   - `useAutocomplete` - Get better search suggestions for your addresses with fewer keystrokes.
 
-- `useWeather` - Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
+- [`useWeather`](./docs/useWeather.md) - Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
   
 - Places
   - `usePlacesAutosuggest` - Provides you a lists of suggested search terms, instants results and refined search links related to a given (partial) search term and location context.
