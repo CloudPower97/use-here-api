@@ -175,7 +175,7 @@ interface ForwardGeocodingRequestParameters extends RequestParameters {
    * @example street0=McAllister+St&street1=Market+StCopy
    * @example example:street=McAllister+St+@+Market+St
    */
-  steet?: string;
+  street?: string;
 }
 
 /**
