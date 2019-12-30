@@ -43,7 +43,7 @@
 
 ## Overview
 
-`use-here-api` exposes convenient hooks which lets you easily integrate <a href="https://developer.here.com/">HERE RESTful API services</a> in your React.js projects.
+`use-here-api` exposes convenient hooks which lets you easily integrate [HERE RESTful API services](<https://developer.here.com/>) in your React.js projects.
 
 ---
 
@@ -109,7 +109,7 @@ At the moment the following `hooks` are available:
 - [`useWeather`](./docs/useWeather.md) - Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
   
 - Places
-  - `usePlacesAutosuggest` - Provides you a lists of suggested search terms, instants results and refined search links related to a given (partial) search term and location context.
+  - [`usePlacesAutosuggest`](./docs/usePlacesAutosuggest.md) - Provides you a lists of suggested search terms, instants results and refined search links related to a given (partial) search term and location context.
  This is used to help users save time, iterate on their searches, and get the results.
 
 ---
