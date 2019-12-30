@@ -18,7 +18,7 @@ Reverse geocoding requests can be made using the reversegeocode endpoint, specif
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { configureAuthentication, useWeather } from '@cloudpower97/use-here-api';
+import { configureAuthentication, useReverseGeocoding } from '@cloudpower97/use-here-api';
 
 const Demo: React.FC<any> = () => {
   const [prox, setProx] = useState<string>('41.8842,-87.6388,250');

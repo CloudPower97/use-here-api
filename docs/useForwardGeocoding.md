@@ -20,7 +20,7 @@ This example retrieves the latitude, longitude and complete address details of 2
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { configureAuthentication, useWeather } from '@cloudpower97/use-here-api';
+import { configureAuthentication, useForwardGeocoding } from '@cloudpower97/use-here-api';
 
 const Demo: React.FC<any> = () => {
   const [searchtext, setSearchtext] = React.useState<string>(
@@ -101,7 +101,7 @@ The mapview parameter restricts the results returned to lie within a specified b
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { configureAuthentication, useWeather } from '@cloudpower97/use-here-api';
+import { configureAuthentication, useForwardGeocoding } from '@cloudpower97/use-here-api';
 
 const Demo: React.FC<any> = () => {
   const [{ data, loading, error }, fetchLocation] = useForwardGeocoding();
@@ -111,8 +111,8 @@ const Demo: React.FC<any> = () => {
   );
 
   configureAuthentication({
-    app_id: '37xgRkaqyv6b5jMMZBAZ',
-    app_code: 'pu__ub2HrvoQTSNe0dNFtg',
+    app_id: '...',
+    app_code: '...',
   });
 
 
@@ -197,7 +197,7 @@ The omitted directional makes the query ambiguous and the response contains ther
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { configureAuthentication, useWeather } from '@cloudpower97/use-here-api';
+import { configureAuthentication, useForwardGeocoding } from '@cloudpower97/use-here-api';
 
 const Demo: React.FC<any> = () => {
   const [housenumber, setHousenumber] = useState<string>('425');
