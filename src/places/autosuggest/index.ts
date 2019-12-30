@@ -157,10 +157,11 @@ interface PlacesAutosuggestRequestParameters
 }
 
 interface PlacesAutosuggestResponse {
-  results:
-    | AutosuggestPlace[]
-    | AutosuggestQueryCompletion[]
-    | AutosuggestSearch[];
+  results: (
+    | AutosuggestPlace
+    | AutosuggestQueryCompletion
+    | AutosuggestSearch
+  )[];
 }
 
 /**
