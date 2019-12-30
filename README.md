@@ -104,7 +104,7 @@ At the moment the following `hooks` are available:
   - [`useForwardGeocoding`](./docs/useForwardGeocoding.md) - Submit an address to request the corresponding geocoordinates. Addresses may use structured input or free-form search strings with complete or partial address information.
       The more detailed the address you submit, the higher the potential match accuracy.
   - [`useReverseGeocoding`](./docs/useReverseGeocoding.md) - Submit a geocoordinate and an optional radius to request the corresponding address.
-  - `useAutocomplete` - Get better search suggestions for your addresses with fewer keystrokes.
+  - [`useAutocomplete`](./docs/useAutocomplete.md) - Get better search suggestions for your addresses with fewer keystrokes.
 
 - [`useWeather`](./docs/useWeather.md) - Give insights into real-time weather forecasts, alerts, and astronomical info for any location.
   
